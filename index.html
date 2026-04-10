@@ -10,8 +10,14 @@
 </head>
 
 <body>
+    <!--Navbar-->
     <nav class="navbar">
         <div class="logo">Laundry Hero</div>
+        <button class="menu-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
@@ -20,6 +26,7 @@
         </ul>
         <div class="user">Yaseen Khan</div>
     </nav>
+    <!--Hero Section-->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-left">
@@ -33,13 +40,14 @@
                     convenience.<br> Schedule a pickup and rediscover the freshness of your
                     clothes today!
                 </p>
-                <a href="#services" class="service-btn">Book a service today!</a>
+                <a href="#services" class="service-button">Book a service today!</a>
             </div>
             <div class="hero-right">
                 <img src="assets/img/laundry-3d-icon.png" alt="Laundry 3D Icon" />
             </div>
         </div>
     </section>
+    <!--Achievements Section-->
     <section class="achievements">
         <div class="container">
             <h2>Our Achievements</h2>
@@ -59,6 +67,7 @@
             </div>
         </div>
     </section>
+    <!--Services Section-->
     <section id="services" class="services">
         <div class="container">
             <div class="services-left">
@@ -66,32 +75,31 @@
                 <p class="services-subtitle">Click On The Add To Cart Button To Add The Services To Your Cart</p>
                 <div class="services-list">
                     <div class="service-item" data-name="Dry Cleaning" data-price="200">
-                        <p><i class="fa fa-shirt"></i> Dry Cleaning - ₹200</p>
-                        <button class="service-btn" onclick="toggle(this)">Add Item +</button>
+                        <p>Dry Cleaning - ₹200</p>
+                        <button class="service-button" data-service="dry-cleaning">Add Item +</button>
                     </div>
                     <div class="service-item" data-name="Wash &amp; Fold" data-price="100">
-                        <p><i class="fa fa-soap"></i> Wash &amp; Fold - ₹100</p>
-                        <button class="service-btn" onclick="toggle(this)">Add Item +</button>
+                        <p>Wash &amp; Fold - ₹100</p>
+                        <button class="service-button" data-service="wash-fold">Add Item +</button>
                     </div>
                     <div class="service-item" data-name="Ironing" data-price="30">
-                        <p><i class="fa fa-fire"></i> Ironing - ₹30</p>
-                        <button class="service-btn" onclick="toggle(this)">Add Item +</button>
+                        <p>Ironing - ₹30</p>
+                        <button class="service-button" data-service="ironing">Add Item +</button>
                     </div>
                     <div class="service-item" data-name="Stain Removal" data-price="500">
-                        <p><i class="fa fa-wand-magic-sparkles"></i> Stain Removal - ₹500</p>
-                        <button class="service-btn" onclick="toggle(this)">Add Item +</button>
+                        <p>Stain Removal - ₹500</p>
+                        <button class="service-button" data-service="stain-removal">Add Item +</button>
                     </div>
                     <div class="service-item" data-name="Leather &amp; Suede Cleaning" data-price="999">
-                        <p><i class="fa fa-couch"></i> Leather &amp; Suede Cleaning - ₹999</p>
-                        <button class="service-btn" onclick="toggle(this)">Add Item +</button>
+                        <p>Leather &amp; Suede Cleaning - ₹999</p>
+                        <button class="service-button" data-service="leather-suede-cleaning">Add Item +</button>
                     </div>
                     <div class="service-item" data-name="Wedding Dress Cleaning" data-price="2800">
-                        <p><i class="fa fa-person-dress"></i> Wedding Dress Cleaning - ₹2800</p>
-                        <button class="service-btn" onclick="toggle(this)">Add Item +</button>
+                        <p>Wedding Dress Cleaning - ₹2800</p>
+                        <button class="service-button" data-service="wedding-dress-cleaning">Add Item +</button>
                     </div>
                 </div>
-                <p class="service-note"><i class="fa fa-exclamation-circle"></i> Add the items to the cart and book now
-                </p>
+                <p class="service-note">Add the items to the cart and book now</p>
             </div>
             <div class="services-right">
                 <div class="added-card">
@@ -102,7 +110,6 @@
                         <span>Price</span>
                     </div>
                     <div class="no-items-added">
-                        <i class="fa fa-exclamation-circle"></i>
                         <p><b>No items added</b></p>
                         <p><small>Add items to the cart from the services bar</small></p>
                     </div>
@@ -115,31 +122,29 @@
                 <div class="book-card">
                     <h3>Book Now</h3>
                     <form class="book-form">
-                        <label for="fullName">Full Name</label>
-                        <input id="fullName" type="text" placeholder="John Doe" required/>
+                        <label>Name</label>
+                        <input id="name" type="text" placeholder="John Doe" />
+                        <div class="field-error"></div>
                         <div class="form-row">
                             <div>
-                                <label for="email">Email ID</label>
-                                <input id="email" type="email" placeholder="mailid@gmail.com" required/>
+                                <label>Email ID</label>
+                                <input id="email" type="email" placeholder="mailid@gmail.com" />
+                                <div class="field-error"></div>
                             </div>
                             <div>
-                                <label for="phone">Phone Number</label>
-                                <input id="phone" type="tel" placeholder="000000000" required/>
+                                <label>Phone Number</label>
+                                <input id="phone" type="tel" placeholder="000000000" />
+                                <div class="field-error"></div>
                             </div>
                         </div>
-                        <button class="book-btn" type="submit" disabled>Book now</button>
+                        <button type="submit" class="book-button" disabled>Book now</button>
                     </form>
-                    <div class="cart-warning" style="display:none; margin-top:12px; color:#d32f2f;">
-                        <i class="fa fa-exclamation-circle"></i> Add the items to the cart to book
-                    </div>
-                    <div class="book-success" style="display:none; margin-top:12px; color:#28a745;">
-                        <i class="fa fa-circle-check"></i> 
-                        Thanks for booking! We’ll get back to you soon.
-                    </div>
+                    <div class="show-message" style="display:none; margin-top:12px;"></div>
                 </div>
             </div>
         </div>
     </section>
+    <!--Features Section-->
     <section id="about" class="features-section">
         <div class="container">
             <div class="features-grid">
@@ -172,23 +177,29 @@
             </div>
         </div>
     </section>
-    <section class="newsletter-section">
+    <!--Newsletter Section-->
+    <section id="contact" class="newsletter-section">
         <div class="container">
             <div class="newsletter-text">
                 <h2>Subscribe to our newsletter</h2>
             </div>
             <form class="newsletter-form">
                 <div class="form-inputs">
-                    <input type="text" placeholder="Full name" required />
-                    <input type="email" placeholder="Email" required />
+                    <div style="width:100%;">
+                        <input id="name" type="text" placeholder="Name" />
+                        <div class="field-error"></div>
+                    </div>
+                    <div style="width:100%;">
+                        <input id="email" type="email" placeholder="Email" />
+                        <div class="field-error"></div>
+                    </div>
                 </div>
                 <button type="submit">Subscribe Now</button>
-                <div class="newsletter-success" style="display:none; margin-top:12px; color:#ffffff;">
-                    Thank you for subscribing to our newsletter !
-                </div>
+                <div class="newsletter-msg" style="display:none; margin-top:12px;"></div>
             </form>
         </div>
     </section>
+    <!--Footer Section-->
     <footer class="footer">
         <div class="container">
             <div class="footer-about">
@@ -206,7 +217,7 @@
                     <li><a href="">Refund Policy</a></li>
                 </ul>
             </div>
-            <div id="contact" class="footer-contact">
+            <div class="footer-contact">
                 <h4>Contact</h4>
                 <p>mailid@gmail.com</p>
                 <p>000000000</p>

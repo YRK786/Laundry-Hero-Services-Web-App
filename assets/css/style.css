@@ -47,6 +47,25 @@ html {
   border-radius: 10px;
 }
 
+.menu-button {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+}
+
+.menu-button span {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+
 .hero {
   padding: 80px 0;
 }
@@ -78,7 +97,7 @@ html {
   margin-bottom: 30px;
 }
 
-.hero-left .service-btn {
+.hero-left .service-button {
   padding: 14px 28px;
   background: #1e90ff;
   color: #fff;
@@ -206,7 +225,7 @@ html {
   color: #1e90ff
 }
 
-.service-btn {
+.service-button {
   border: 1px solid #ffffff;
   border-radius: 18px;
   background: #f6f8fa;
@@ -214,6 +233,11 @@ html {
   padding: 10px 16px;
   min-width: 160px;
   text-align: center;
+}
+
+.service-button.remove-item {
+  background: #ffe6e6;
+  color: #8b0000;
 }
 
 .service-note {
@@ -249,6 +273,28 @@ html {
   border-bottom: 1px solid #eee;
 }
 
+.added-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.added-item-row span:nth-child(1) {
+  width: 50px;
+}
+
+.added-item-row span:nth-child(2) {
+  flex: 1;
+}
+
+.added-item-row span:nth-child(3) {
+  width: 80px;
+  text-align: right;
+}
+
 .total-row {
   display: flex;
   justify-content: space-between;
@@ -282,6 +328,13 @@ html {
   outline: unset;
 }
 
+.field-error {
+  color: #d32f2f;
+  font-size: 12px;
+  margin: -6px 0 10px;
+  line-height: 1.2;
+}
+
 .form-row {
   display: flex;
   gap: 10px;
@@ -291,7 +344,7 @@ html {
   width: 50%;
 }
 
-.book-btn {
+.book-button {
   padding: 14px 28px;
   background: #1e90ff;
   color: #fff;
@@ -302,20 +355,15 @@ html {
   width: 100%;
 }
 
-.book-btn:disabled {
+.book-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   background: #b3d1ff;
 }
 
 .no-items-added {
+  margin-top: 30px;
   text-align: center;
-}
-
-.no-items-added i {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  font-size: 32px;
 }
 
 .features-section {
@@ -521,4 +569,260 @@ html {
 .social-icons a:hover {
   color: #1e90ff;
   border-color: rgba(30, 144, 255, 0.35);
+}
+
+@media (max-width: 991px) {
+  .navbar {
+    position: relative;
+    padding: 15px 15px;
+    height: auto;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .user {
+    display: none;
+  }
+
+  .menu-button {
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .hero {
+    padding: 50px 0;
+  }
+
+  .hero .container {
+    gap: 20px;
+  }
+
+  .hero-left {
+    width: 55%;
+  }
+
+  .hero-right {
+    width: 45%;
+  }
+
+  .hero-left h1 {
+    font-size: 32px;
+  }
+
+  .hero-left p {
+    font-size: 14px;
+  }
+
+  .achievements {
+    padding: 50px 0;
+  }
+
+  .achievements .container {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .achievements h2 {
+    font-size: 32px;
+    width: 100%;
+  }
+
+  .achievements-block {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .achievement h3 {
+    font-size: 28px;
+  }
+
+  .achievement p {
+    font-size: 16px;
+  }
+
+  .services {
+    padding: 50px 0;
+  }
+
+  .services .container {
+    flex-direction: column;
+  }
+
+  .services-left,
+  .services-right {
+    width: 100%;
+  }
+
+  .services-title {
+    font-size: 32px;
+  }
+
+  .features-section {
+    padding: 50px 0;
+  }
+
+  .features-grid {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .feature-item {
+    width: calc(50% - 15px);
+  }
+
+  .newsletter-section {
+    padding: 50px 0;
+  }
+
+  .newsletter-section .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .newsletter-text,
+  .newsletter-form {
+    width: 100%;
+  }
+
+  .newsletter-text h2 {
+    font-size: 32px;
+    white-space: normal;
+  }
+
+  .newsletter-form {
+    align-items: center;
+  }
+
+  .footer .container {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .footer-about {
+    width: 100%;
+    flex: none;
+  }
+
+  .footer-about p {
+    max-width: 100%;
+  }
+
+  .footer-links,
+  .footer-contact,
+  .footer-social {
+    flex: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 40px 0;
+  }
+
+  .hero .container,
+  .services .container,
+  .features-grid,
+  .footer .container,
+  .newsletter-section .container {
+    flex-direction: column;
+  }
+
+  .hero-left,
+  .hero-right,
+  .services-left,
+  .services-right,
+  .newsletter-text,
+  .newsletter-form {
+    width: 100%;
+  }
+
+  .hero-left h1 {
+    font-size: 24px;
+  }
+
+  .hero-left p {
+    font-size: 14px;
+  }
+
+  .achievements h2 {
+    font-size: 26px;
+    width: 100%;
+  }
+
+  .achievement h3 {
+    font-size: 24px;
+  }
+
+  .achievement p {
+    font-size: 14px;
+  }
+
+  .services-title {
+    font-size: 26px;
+  }
+
+  .services-subtitle {
+    font-size: 14px;
+  }
+
+  .added-card h3,
+  .book-card h3 {
+    font-size: 16px;
+  }
+
+  .feature-item h3 {
+    font-size: 16px;
+  }
+
+  .feature-item p {
+    font-size: 12px;
+  }
+
+  .newsletter-text h2 {
+    font-size: 26px;
+    white-space: normal;
+  }
+
+  .footer h1 {
+    font-size: 18px;
+  }
+
+  .footer h4 {
+    font-size: 13px;
+  }
+
+  .footer p,
+  .footer a {
+    font-size: 11px;
+  }
+
+  .hero-right img {
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-row>div {
+    width: 100%;
+  }
 }
